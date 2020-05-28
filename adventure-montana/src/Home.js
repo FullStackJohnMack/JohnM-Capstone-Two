@@ -1,11 +1,14 @@
 import React from 'react';
+import AdventureMap from './AdventureMap';
+
 
 function Home () {
 
+
+
     return (
         <div>
-            <h1>Welcome to Adventure Montana</h1>
-            <p>More content coming soon!</p>
+            <AdventureMap/>
         </div>
     )
 }

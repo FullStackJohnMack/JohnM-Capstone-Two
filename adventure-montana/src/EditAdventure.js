@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { addAdventure } from './actions/adventuresActions';
+import { useHistory, useParams } from 'react-router-dom';
+import { editAdventure } from './actions/adventuresActions';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import { getCategoryId } from './helpers';
 
-function AddAdventure () {
+function EditAdventure () {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const { adventure_id } = useParams();
 
+    const adventure = useSelector(store => store.adventures[adventure_id]);
     const token = useSelector(store => store.users.token);
 
     const INITIAL_STATE = {
-        advName:'',
-        description:'',
-        categoryId:'1',
-        startingLoc:'',
-        endingLoc:'',
-        minDuration:'',
+        advName: adventure.name,
+        description: adventure.description,
+        categoryId: getCategoryId(adventure.category),
+        startingLoc: adventure.starting_location,
+        endingLoc: adventure.ending_location,
+        minDuration: adventure.min_duration,
         token: token
     }
 
@@ -34,9 +37,9 @@ function AddAdventure () {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(addAdventure(formData));
-        // history.push('/adventures');
+        e.preventDefault()
+        dispatch(editAdventure(adventure_id,formData));
+        history.push(`/adventures/${adventure_id}`);
     }
 
     return (
@@ -107,11 +110,12 @@ function AddAdventure () {
                         placeholder="in minutes"
                         onChange={handleChange}/>
                 </Form.Group>
-                <Button type="submit" variant="success">Add</Button>
+              
+                <Button type="submit" variant="success">Update</Button>  
                 <Button onClick={history.goBack}>Cancel</Button>
             </Form>
         </Container>
     )
 }
 
-export default AddAdventure;
+export default EditAdventure;

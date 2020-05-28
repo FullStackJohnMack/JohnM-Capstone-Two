@@ -2,7 +2,8 @@
  *  Planet reducer is later combined with the films and people reducers
  */
 
-import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE } from "../actions/actionTypes";
+import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE, DELETED_ADVENTURE, EDITED_ADVENTURE } from "../actions/actionTypes";
+import { objFilter } from '../helpers';
 
 const INITIAL_STATE = {};
 
@@ -12,7 +13,6 @@ function adventures(state = INITIAL_STATE, action) {
 
     case LOADED_ADVENTURE:
       return {
-        ...state,
         [action.payload.adventure_id]: { ...action.payload }
       };
 
@@ -24,11 +24,22 @@ function adventures(state = INITIAL_STATE, action) {
       return obj;
 
     case ADDED_ADVENTURE:
+      return {
+        ...state,
+        [action.payload.adventure_id]: { ...action.payload }
+      }
+    
+    case EDITED_ADVENTURE:
       console.log(action.payload);
       return {
         ...state,
         [action.payload.adventure_id]: { ...action.payload }
       }
+
+    case DELETED_ADVENTURE:
+      return (objFilter(state, adventure => {
+        return adventure.adventure_id !== parseInt(action.payload);
+      }))
 
     default:
       return state;

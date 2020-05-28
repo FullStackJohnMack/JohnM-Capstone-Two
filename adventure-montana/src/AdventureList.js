@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 function AdventureList () {
 
@@ -19,20 +22,20 @@ function AdventureList () {
         Object.values(adventuresObj).forEach(adv => {
 
             adventureList.push(
-                <div key={adv.adventure_id}>
-                    <Link to={`adventures/${(adv.adventure_id)}`}>
-                        <h3>{adv.name}</h3>
-                    </Link>
-                    <p>{adv.description}</p>
-                </div>);
+                <Card key={adv.adventure_id}>
+                    <Card.Body>
+                        <Card.Title>{adv.name}</Card.Title>
+                        <Card.Text>{adv.description}</Card.Text>
+                        <Link to={`adventures/${(adv.adventure_id)}`}><Button>View</Button></Link>
+                    </Card.Body>
+                </Card>);
         })
-    }
-    
+    }    
 
     return (
-        <div>
+        <Container>
             {adventureList}
-        </div>
+        </Container>
     )
 }
 

@@ -3,6 +3,8 @@ import './App.css';
 import NavBar from './NavBar';
 import Routes from './Routes';
 import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FlashedMessages from './FlashedMessages';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
 
       <BrowserRouter>
         <NavBar/>
+        <FlashedMessages/>
         <Routes />
       </BrowserRouter>
     </div>

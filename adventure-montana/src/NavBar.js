@@ -1,15 +1,34 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loggedOut } from './actions/usersActions';
 
 function NavBar () {
 
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch(loggedOut());
+        history.push('/');
+    }
+
+    const users = useSelector(store => store.users);
+
+
     return (
-        <nav>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/adventures">Adventures</NavLink>
-            <NavLink exact to="/adventures/add">Add an Adventure</NavLink>
-            <NavLink exact to="/">Login</NavLink>
-        </nav>
+        <>
+            <Navbar bg="light" variant="light">
+                <Navbar.Brand href="/">Adventure Montana</Navbar.Brand>
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/adventures">Adventures</Nav.Link>
+                {users.username ? <Nav.Link as={Link} to="/adventures/add">Add an Adventure</Nav.Link> : null }
+                {users.username ? null : <Nav.Link as={Link} to="/users/new">Register</Nav.Link>}
+                {users.username ? <Nav.Link as={Link} to="#" onClick={logout}>{`Logout (${users.username})`}</Nav.Link> : <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+            </Navbar>
+        </>
     )
 }
 
