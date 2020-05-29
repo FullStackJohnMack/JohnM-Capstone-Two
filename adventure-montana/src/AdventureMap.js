@@ -5,6 +5,7 @@ import { getAllAdventuresFromAPI } from './actions/adventuresActions';
 
 const googleMapsAPIKey = 'https://adventure-montana.netlify.app/.netlify/functions/api';
 
+
 function AdventureMap () {
 
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function AdventureMap () {
     }
 
     return (
+        <h1>googleMapsAPIKey</h1>
 
             <GoogleMaps
                 apiKey={googleMapsAPIKey}
