@@ -8,8 +8,8 @@ function AdventureMap () {
 
     async function getAPIKey() {
         const res = await axios.get('https://adventure-montana.netlify.app/.netlify/functions/api');
-        console.log(res.data);
-        return res.data;
+        console.log(res.data.body);
+        return res.data.body;
     }
 
     const googleMapsAPIKey = getAPIKey();
