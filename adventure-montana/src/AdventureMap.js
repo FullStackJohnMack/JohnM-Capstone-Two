@@ -2,11 +2,11 @@ import React, { useEffect }  from 'react';
 import GoogleMaps from 'simple-react-google-maps';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
-const {googleMapsAPIKey} = require('./config');
+
+const googleMapsAPIKey = test;
 
 function AdventureMap () {
 
-    console.log(googleMapsAPIKey);
     const dispatch = useDispatch();
 
     useEffect(() => {
