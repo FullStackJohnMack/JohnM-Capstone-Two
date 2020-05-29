@@ -3,7 +3,7 @@ import GoogleMaps from 'simple-react-google-maps';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
 
-const googleMapsAPIKey = test;
+const googleMapsAPIKey = 'https://adventure-montana.netlify.app/.netlify/functions/api';
 
 function AdventureMap () {
 
