@@ -27,7 +27,7 @@ function AdventureMap () {
 
     return (
         <>
-        <h1>googleMapsAPIKey</h1>
+        <h1>{googleMapsAPIKey}</h1>
 
             <GoogleMaps
                 apiKey={googleMapsAPIKey}
