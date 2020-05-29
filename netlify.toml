@@ -1,6 +1,2 @@
-# Production context:
-# All deploys from the main repository branch
-# will inherit these settings.
-[context.production]
-  [context.production.environment]
+[template.environment]
     GOOGLE_MAPS_API_KEY = "super secret"
