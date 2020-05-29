@@ -2,11 +2,17 @@ import React, { useEffect }  from 'react';
 import GoogleMaps from 'simple-react-google-maps';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
-
-const googleMapsAPIKey = 'https://adventure-montana.netlify.app/.netlify/functions/api';
-
+import axios from 'axios';
 
 function AdventureMap () {
+
+    async function getAPIKey() {
+        const res = await axios.get('https://adventure-montana.netlify.app/.netlify/functions/api');
+        console.log(res.data);
+        return res.data;
+    }
+
+    const googleMapsAPIKey = getAPIKey();
 
     const dispatch = useDispatch();
 
