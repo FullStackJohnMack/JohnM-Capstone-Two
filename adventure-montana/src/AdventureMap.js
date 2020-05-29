@@ -26,6 +26,7 @@ function AdventureMap () {
     }
 
     return (
+        <>
         <h1>googleMapsAPIKey</h1>
 
             <GoogleMaps
@@ -35,6 +36,7 @@ function AdventureMap () {
                 center={{lat: 47.5081513, lng: -111.3247377}}
                 markers={markers} //optional
             />
+            </>
     );
     }
     
