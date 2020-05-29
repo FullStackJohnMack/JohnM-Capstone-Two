@@ -2,8 +2,11 @@ import React, { useEffect }  from 'react';
 import GoogleMaps from 'simple-react-google-maps';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
+const {googleMapsAPIKey} = require('./config');
 
 function AdventureMap () {
+
+    console.log(googleMapsAPIKey);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +27,7 @@ function AdventureMap () {
     return (
 
             <GoogleMaps
-                apiKey={'AIzaSyCyNHW6Kq8GsYVKI5iTPG7FytmMY55ZUWU'}
+                apiKey={googleMapsAPIKey}
                 style={{height: "80vh", width: "90vw"}}
                 zoom={7}
                 center={{lat: 47.5081513, lng: -111.3247377}}
