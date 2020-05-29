@@ -1,5 +1,5 @@
 /**
- *  Planet reducer is later combined with the films and people reducers
+ *   reducer is later combined with the  and  reducers
  */
 
 import { ADDED_MESSAGE, REMOVED_MESSAGES } from "../actions/actionTypes";

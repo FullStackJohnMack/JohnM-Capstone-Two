@@ -22,13 +22,14 @@ function AdventureMap () {
     }
 
     return (
-        <GoogleMaps
-            apiKey={'AIzaSyCyNHW6Kq8GsYVKI5iTPG7FytmMY55ZUWU'}
-            style={{height: "80vh", width: "90vw"}}
-            zoom={7}
-            center={{lat: 47.5081513, lng: -111.3247377}}
-            markers={markers} //optional
-        />
+
+            <GoogleMaps
+                apiKey={'AIzaSyCyNHW6Kq8GsYVKI5iTPG7FytmMY55ZUWU'}
+                style={{height: "80vh", width: "90vw"}}
+                zoom={7}
+                center={{lat: 47.5081513, lng: -111.3247377}}
+                markers={markers} //optional
+            />
     );
     }
     

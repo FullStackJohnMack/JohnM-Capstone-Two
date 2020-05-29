@@ -19,8 +19,8 @@ function NavBar () {
 
 
     return (
-        <>
-            <Navbar bg="light" variant="light">
+        <div className="shadow-lg bg-transparent">
+            <Navbar variant="light" bg="light">
                 <Navbar.Brand href="/">Adventure Montana</Navbar.Brand>
                 <Nav.Link as={Link} to="/">Home</Nav.Link>
                 <Nav.Link as={Link} to="/adventures">Adventures</Nav.Link>
@@ -28,7 +28,7 @@ function NavBar () {
                 {users.username ? null : <Nav.Link as={Link} to="/users/new">Register</Nav.Link>}
                 {users.username ? <Nav.Link as={Link} to="#" onClick={logout}>{`Logout (${users.username})`}</Nav.Link> : <Nav.Link as={Link} to="/login">Login</Nav.Link>}
             </Navbar>
-        </>
+        </div>
     )
 }
 

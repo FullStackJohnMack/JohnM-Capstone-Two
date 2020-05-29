@@ -45,6 +45,7 @@ function EditAdventure () {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
+                <h3>Edit an Adventure</h3>
                 <Form.Group controlId="addAdventureForm.advName">
                     <Form.Label>Name:</Form.Label>
                     <Form.Control 

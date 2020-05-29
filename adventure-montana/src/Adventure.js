@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { deleteAdventure, getAdventureFromAPI } from './actions/adventuresActions';
 import jwt from 'jsonwebtoken';
+import Card from 'react-bootstrap/Card';
 
 function Adventure () {
     const { adventure_id } = useParams();
@@ -43,15 +44,19 @@ function Adventure () {
         )
     } else {
         return (
-            <div>
-                <h1>{adventure.name}</h1>
-                <p>{adventure.description}</p>
-                <p>Minimum duration: {adventure.min_duration} minutes</p>
-                
-                {admin ? <Link to={`/adventures/${adventure_id}/edit`}><Button variant="success">Edit</Button></Link> : null }
-                {admin ? <Button onClick={deleteAdv} variant="danger">Delete</Button> : null }
-                <Button onClick={history.goBack}>Back</Button>
-            </div>
+            <Card>
+                <Card.Body>
+                    <Card.Title>{adventure.name}</Card.Title>
+                    <Card.Text>
+                        <p>{adventure.description}</p>
+                        <p>Minimum duration: {adventure.min_duration} minutes</p>
+                        <i>{adventure.category}</i>
+                    </Card.Text>
+                    {admin ? <Link to={`/adventures/${adventure_id}/edit`}><Button variant="success">Edit</Button></Link> : null }
+                    {admin ? <Button onClick={deleteAdv} variant="danger">Delete</Button> : null }
+                    <Button onClick={history.goBack}>Back</Button>
+                </Card.Body>
+            </Card>                
         )
     }
 }

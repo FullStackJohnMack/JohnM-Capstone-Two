@@ -12,7 +12,7 @@ function App() {
 
       <BrowserRouter>
         <NavBar/>
-        <FlashedMessages/>
+        <FlashedMessages />
         <Routes />
       </BrowserRouter>
     </div>

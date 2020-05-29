@@ -1,5 +1,5 @@
 /**
- *  Planet reducer is later combined with the films and people reducers
+ *   reducer is later combined with the  and  reducers
  */
 
 import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE, DELETED_ADVENTURE, EDITED_ADVENTURE } from "../actions/actionTypes";
@@ -30,7 +30,7 @@ function adventures(state = INITIAL_STATE, action) {
       }
     
     case EDITED_ADVENTURE:
-      console.log(action.payload);
+
       return {
         ...state,
         [action.payload.adventure_id]: { ...action.payload }

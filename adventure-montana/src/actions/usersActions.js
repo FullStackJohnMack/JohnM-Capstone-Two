@@ -1,5 +1,5 @@
 /**
- *  Thunk action that retrieves a planet from the API and call an async dispatch with that planet object
+ *  Thunk action that retrieves a  from the API and call an async dispatch with that  object
  */
 
 import axios from "axios";
@@ -50,8 +50,6 @@ function registerUser(data) {
           last_name: data.last_name,
           email: data.email
         });
-
-        console.log(res.data);
 
         let user = {
           username: res.data.username,

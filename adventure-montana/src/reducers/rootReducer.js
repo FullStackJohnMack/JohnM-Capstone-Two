@@ -1,5 +1,5 @@
 /**
- *  Combines the films, planets, and people reducers
+ *  Combines the , , and  reducers
  */
 
 import { combineReducers } from "redux";

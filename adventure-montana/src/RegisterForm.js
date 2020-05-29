@@ -44,6 +44,7 @@ function RegisterForm () {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
+            <h3>Register as a User</h3>
                 <Form.Group controlId="RegisterUserForm.username">
                     <Form.Label>* Username:</Form.Label>
                     <Form.Control 

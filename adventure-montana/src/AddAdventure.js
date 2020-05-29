@@ -24,6 +24,13 @@ function AddAdventure () {
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
+    const [adventureId, setAdventureId] = useState(-1);
+
+    const adventures = useSelector(store => store.adventures);
+
+    if (adventures[adventureId]) {
+        history.push('/adventures');
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,15 +40,18 @@ function AddAdventure () {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addAdventure(formData));
-        // history.push('/adventures');
+        const res = await dispatch(addAdventure(formData));
+        if (res) {
+            setAdventureId(parseInt(res.adventure_id));
+        }
     }
 
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
+            <h3>Add an Adventure</h3>
                 <Form.Group controlId="addAdventureForm.advName">
                     <Form.Label>Name:</Form.Label>
                     <Form.Control 

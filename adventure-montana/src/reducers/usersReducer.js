@@ -1,5 +1,5 @@
 /**
- *  Planet reducer is later combined with the films and people reducers
+ *   reducer is later combined with the  and  reducers
  */
 
 import { LOGGED_IN, LOGGED_OUT, REGISTERED_USER } from "../actions/actionTypes";

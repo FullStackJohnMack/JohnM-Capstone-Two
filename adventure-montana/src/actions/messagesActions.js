@@ -1,5 +1,5 @@
 /**
- *  Thunk action that retrieves a planet from the API and call an async dispatch with that planet object
+ *  Thunk action that retrieves a planet from the API and call an async dispatch with that  object
  */
 
 import { ADDED_MESSAGE, REMOVED_MESSAGES } from "./actionTypes";

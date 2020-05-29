@@ -1,5 +1,5 @@
 /**
- *  Thunk action that retrieves a planet from the API and call an async dispatch with that planet object
+ *  Thunk action that retrieves a planet from the API and call an async dispatch with that  object
  */
 
 import axios from "axios";
@@ -54,6 +54,7 @@ function addAdventure(adventure) {
         token: adventure.token
       });
       dispatch(addedAdventure(res.data));
+      return(res.data);
     } catch (e) {
     dispatch(addMessage("Can't create adventure"));
     }
@@ -86,7 +87,6 @@ function deletedAdventure(adventure_id) {
 
 function editAdventure(adventure_id,adventure) {
 
-  // console.log(adventure);
   return async function (dispatch) {
 
     let res = await axios({
