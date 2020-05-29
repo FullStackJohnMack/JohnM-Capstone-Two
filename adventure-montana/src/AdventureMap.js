@@ -6,13 +6,18 @@ import axios from 'axios';
 
 function AdventureMap () {
 
-    async function getAPIKey() {
-        const res = await axios.get('https://adventure-montana.netlify.app/.netlify/functions/api');
-        console.log(res.data.body);
-        return res.data.body;
-    }
+    // async function getAPIKey() {
+    //     const res = await axios.get('https://adventure-montana.netlify.app/.netlify/functions/api');
+    //     return res.data;
+    // }
+    // async function getAPIKey() {
+    //     const res = await axios.get('https://adventure-montana.netlify.app/.netlify/functions/api');
+    //     return res.data;
+    // }
 
-    const googleMapsAPIKey = getAPIKey();
+    const { GOOGLE_MAPS_API_KEY } = process.env;
+
+
 
     const dispatch = useDispatch();
 
@@ -33,10 +38,10 @@ function AdventureMap () {
 
     return (
         <>
-        <h1>{googleMapsAPIKey}</h1>
+        <h1>{GOOGLE_MAPS_API_KEY}</h1>
 
             <GoogleMaps
-                apiKey={googleMapsAPIKey}
+                apiKey={GOOGLE_MAPS_API_KEY}
                 style={{height: "80vh", width: "90vw"}}
                 zoom={7}
                 center={{lat: 47.5081513, lng: -111.3247377}}
