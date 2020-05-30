@@ -5,7 +5,7 @@
 import axios from "axios";
 import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE, DELETED_ADVENTURE, EDITED_ADVENTURE } from "./actionTypes";
 import { addMessage } from "./messagesActions";
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://adventure-montana-backend.herokuapp.com';
 
 function getAdventureFromAPI(adventure_id) {
   return async function (dispatch) {

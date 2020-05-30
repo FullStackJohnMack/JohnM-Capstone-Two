@@ -6,7 +6,7 @@ import axios from "axios";
 import { LOGGED_IN, LOGGED_OUT, REGISTERED_USER } from "./actionTypes";
 import { addMessage } from "./messagesActions";
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://adventure-montana-backend.herokuapp.com';
 
 function login(data) {
   
