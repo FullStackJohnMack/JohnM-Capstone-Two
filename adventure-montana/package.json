@@ -21,14 +21,15 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "scriptjs": "^2.5.9",
-    "simple-react-google-maps": "https://github.com/FullStackJohnMack/simple-react-google-maps.git",
+    "simple-react-google-maps": "https://github.com/fullstackjohnmack/simple-react-google-maps.git",
     "uuid": "^8.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
