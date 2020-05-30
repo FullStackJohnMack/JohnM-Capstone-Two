@@ -5,7 +5,7 @@
 import axios from "axios";
 import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE, DELETED_ADVENTURE, EDITED_ADVENTURE } from "./actionTypes";
 import { addMessage } from "./messagesActions";
-const { API_URL } = require("./config");
+const { API_URL } = require("../config");
 
 
 function getAdventureFromAPI(adventure_id) {
