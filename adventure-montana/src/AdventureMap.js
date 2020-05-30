@@ -39,7 +39,7 @@ function AdventureMap () {
     return (
 
             <GoogleMaps
-                apiKey={AIzaSyA2Tzr8rXJlzcIh5b76LMwJ4AHH97T_BUE}
+                apiKey={'AIzaSyA2Tzr8rXJlzcIh5b76LMwJ4AHH97T_BUE'}
                 style={{height: "80vh", width: "90vw"}}
                 zoom={7}
                 center={{lat: 47.5081513, lng: -111.3247377}}
