@@ -10,6 +10,7 @@ const { API_URL } = require("../config");
 
 function getAdventureFromAPI(adventure_id) {
   return async function (dispatch) {
+    console.log(`${API_URL}/adventures/${adventure_id}/`);
     let res = await axios.get(`${API_URL}/adventures/${adventure_id}/`);
     let {
       name,

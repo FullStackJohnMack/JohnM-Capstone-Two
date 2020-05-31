@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
+import { Link } from 'react-router-dom';
 
 const BASE_URL = 'https://res.cloudinary.com/back-road-code/image/upload';
 
@@ -109,7 +110,9 @@ function AdventureMap () {
                             onCloseClick={() => setSelected({})}
                         >
                             <div>
-                                <p><a href={`/adventures/${selected.adventure_id}`}>{selected.name}</a></p>
+                                {/* <p><a href={`/adventures/${selected.adventure_id}`}>{selected.name}</a></p> */}
+                                {/* <p>{selected.name}</p> */}
+                                <Link to={`adventures/${(selected.adventure_id)}`}><p>{selected.name}</p></Link>
                                 <p>{`Duration: ${selected.min_duration} minutes`}</p>
                                 <i>{selected.category}</i>
                             </div>
