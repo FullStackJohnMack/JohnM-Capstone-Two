@@ -1,5 +1,4 @@
 import React, { useEffect }  from 'react';
-import GoogleMaps from './maps';
 import GoogleMaps from 'simple-react-google-maps-plus';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
