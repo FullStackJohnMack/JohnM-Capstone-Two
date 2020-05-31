@@ -4,11 +4,8 @@ import AdventureMap from './AdventureMap';
 function Home () {
 
 
-
     return (
-        <div>
-            <AdventureMap/>
-        </div>
+        <AdventureMap/>
     )
 }
 
