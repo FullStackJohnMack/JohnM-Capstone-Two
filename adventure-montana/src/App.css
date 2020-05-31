@@ -53,6 +53,8 @@ body {
   border: 1px solid rgb(112, 153, 203);
   margin-top: 2rem;
   box-shadow: 1px 2px 10px rgb(160, 160, 160);
+  width: 90vw;
+  height: 80vh;
 }
 
 .card {

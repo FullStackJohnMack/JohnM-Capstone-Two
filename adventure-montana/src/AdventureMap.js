@@ -8,8 +8,8 @@ const BASE_URL = 'https://res.cloudinary.com/back-road-code/image/upload';
 function AdventureMap () {
 
     const containerStyle = {
-        width: '100vw',
-        height: '100vh'
+        width: 'auto',
+        height: '100%'
       };
       
       const center = {
@@ -30,7 +30,6 @@ function AdventureMap () {
   
     const onSelect = (item) => {
         setSelected(item);
-        console.log(item);
     }
 
     const convertCoords = (string) => {
@@ -94,30 +93,32 @@ function AdventureMap () {
     }  
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyA2Tzr8rXJlzcIh5b76LMwJ4AHH97T_BUE">
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={8}
-            >
-                {markers}
-                {selected.starting_location && 
-                    (
-                    <InfoWindow
-                        position={convertCoords(selected.starting_location)}
-                        clickable={true}
-                        onCloseClick={() => setSelected({})}
-                    >
-                        <div>
-                            <p><a href={`/adventures/${selected.adventure_id}`}>{selected.name}</a></p>
-                            <p>{`Duration: ${selected.min_duration} minutes`}</p>
-                            <i>{selected.category}</i>
-                        </div>
-                    </InfoWindow>
-                    )
-                }
-            </GoogleMap>
-        </LoadScript>
+        <div id="map">
+            <LoadScript googleMapsApiKey="AIzaSyA2Tzr8rXJlzcIh5b76LMwJ4AHH97T_BUE">
+                <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={center}
+                    zoom={8}
+                >
+                    {markers}
+                    {selected.starting_location && 
+                        (
+                        <InfoWindow
+                            position={convertCoords(selected.starting_location)}
+                            clickable={true}
+                            onCloseClick={() => setSelected({})}
+                        >
+                            <div>
+                                <p><a href={`/adventures/${selected.adventure_id}`}>{selected.name}</a></p>
+                                <p>{`Duration: ${selected.min_duration} minutes`}</p>
+                                <i>{selected.category}</i>
+                            </div>
+                        </InfoWindow>
+                        )
+                    }
+                </GoogleMap>
+            </LoadScript>
+        </div>
     );
     }
     
