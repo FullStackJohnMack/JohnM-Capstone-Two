@@ -21,7 +21,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "scriptjs": "^2.5.9",
-    "simple-react-google-maps": "https://github.com/FullStackJohnMack/simple-react-google-maps/tarball/master",
+    "simple-react-google-maps-plus": "github:fullstackjohnmack/simple-react-google-maps#master",
     "uuid": "^8.1.0"
   },
   "scripts": {
