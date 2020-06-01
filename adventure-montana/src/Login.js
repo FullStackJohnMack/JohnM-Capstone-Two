@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+/**
+ * Component that contains a form to login to the app
+ */
+
+ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from './actions/usersActions';
@@ -9,6 +13,7 @@ import Container from 'react-bootstrap/Container';
 function Login () {
 
     const history = useHistory();
+
     const dispatch = useDispatch();
 
     const users = useSelector(store => store.users);
@@ -20,6 +25,7 @@ function Login () {
 
     const [formData, setFormData] = useState(INITIAL_STATE);
 
+    //handles changes to controlled form
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({
@@ -28,6 +34,7 @@ function Login () {
         }))
     }
 
+    //bounces logged in user away from login form
     if (users.username) {
         history.push('/');
     }
@@ -64,7 +71,6 @@ function Login () {
             </Form>
         </Container>
     )
-    // }
 }
 
 export default Login;

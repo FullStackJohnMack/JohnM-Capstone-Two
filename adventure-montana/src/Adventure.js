@@ -1,3 +1,8 @@
+/**
+ * Component that renders one adventure with details
+ * Admin users see buttons to delete and edit the adventure; users do not see these
+ */
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link } from "react-router-dom";
@@ -21,7 +26,7 @@ function Adventure () {
         admin = true;
     }
 
-
+    //useEffect necessary because if the store doesn't have this adventure loaded already (due to async), try to get it
     useEffect(() => {
         if(!adventure) {
             dispatch(getAdventureFromAPI(adventure_id));
@@ -29,12 +34,12 @@ function Adventure () {
     }, [dispatch, adventure_id, adventure]);
 
     
-
     const deleteAdv = () => {
         dispatch(deleteAdventure(adventure_id,token));
         history.push('/adventures');
     }
 
+    //if user enters hits a route for an invalid adventure, show message with button to go back
     if (!adventure && Object.keys(adventures).length === 0 && adventures.constructor === Object) {
         return (
             <>

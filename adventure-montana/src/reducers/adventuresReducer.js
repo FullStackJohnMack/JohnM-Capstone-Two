@@ -1,12 +1,11 @@
 /**
- *   reducer is later combined with the  and  reducers
+ *   Adventures reducer
  */
 
 import { LOADED_ADVENTURE, LOADED_ALL_ADVENTURES, ADDED_ADVENTURE, DELETED_ADVENTURE, EDITED_ADVENTURE } from "../actions/actionTypes";
 import { objFilter } from '../helpers';
 
 const INITIAL_STATE = {};
-
 
 function adventures(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -30,7 +29,6 @@ function adventures(state = INITIAL_STATE, action) {
       }
     
     case EDITED_ADVENTURE:
-
       return {
         ...state,
         [action.payload.adventure_id]: { ...action.payload }

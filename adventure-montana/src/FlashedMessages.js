@@ -1,10 +1,12 @@
-// import React from 'react';
+/**
+ * Component that allows for flashed messages to be rendered app-wide under navbar
+ */
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeMessages } from './actions/messagesActions';
 import Alert from 'react-bootstrap/Alert';
-import { v4 as uuid } from 'uuid';
-
+import { v4 as uuid } from 'uuid';  //used to create unqiue keys for rendered components
 
 function FlashedMessages () {
 
@@ -12,6 +14,7 @@ function FlashedMessages () {
     
     const messages = useSelector(store=>store.messages);
     
+    //flashed messages disappear after specified time
     useEffect(()=>{
         if (messages[0]) {
         setTimeout(function() {
@@ -20,24 +23,21 @@ function FlashedMessages () {
         }    
     })
     
-
-
     if (!messages) {
         return null
     } else {
-    const messageList = [];
-    messages.forEach(message => {
-        messageList.push(
-            <Alert variant="danger" key={uuid()}>
-                <h6>{message}</h6>
-            </Alert>
+        const messageList = [];
+        messages.forEach(message => {
+            messageList.push(
+                <Alert variant="danger" key={uuid()}>
+                    <h6>{message}</h6>
+                </Alert>
+            )
+        })
+        return (
+            messageList
         )
-    })
-    return (
-        messageList
-    )
-    }
-    
+    }  
 }
 
 export default FlashedMessages;

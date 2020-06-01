@@ -1,3 +1,7 @@
+/**
+ * Component containing form which registers a user
+ */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -9,6 +13,7 @@ import { registerUser } from './actions/usersActions';
 function RegisterForm () {
 
     const history = useHistory();
+
     const dispatch = useDispatch();
 
     const INITIAL_STATE = {
@@ -23,10 +28,12 @@ function RegisterForm () {
 
     const users = useSelector(store => store.users);
 
+    //bounces logged in users to home page so they can't create another user while logged in
     if (users.username) {
         history.push('/');
     }
 
+    //handles changes to the controlled form
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({

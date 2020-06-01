@@ -1,5 +1,5 @@
 /**
- *  Combines the , , and  reducers
+ *  Combines the adventures, users, and messages reducers
  */
 
 import { combineReducers } from "redux";

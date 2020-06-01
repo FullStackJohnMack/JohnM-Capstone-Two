@@ -1,5 +1,5 @@
 /**
- *   reducer is later combined with the  and  reducers
+ *   Messages reducer
  */
 
 import { ADDED_MESSAGE, REMOVED_MESSAGES } from "../actions/actionTypes";

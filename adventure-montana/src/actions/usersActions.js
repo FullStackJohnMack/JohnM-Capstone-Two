@@ -1,11 +1,18 @@
 /**
- *  Thunk action that retrieves a  from the API and call an async dispatch with that  object
+ *  Actions using thunk middleware for users
  */
 
 import axios from "axios";
 import { LOGGED_IN, LOGGED_OUT, REGISTERED_USER } from "./actionTypes";
 import { addMessage } from "./messagesActions";
 const { API_URL } = require("../config");
+
+
+/**
+ * Logs in a user to the backend 
+ * Accepts a username and password, receives a token, and dispatches the logged-in user to the store
+ * If unable to login, flashes a message to the UI
+ */
 
 function login(data) {
   
@@ -29,13 +36,22 @@ function login(data) {
   }
 }
 
+//Action creator for adding a logged in user to the store
 function loggedIn(user) {
   return { type: LOGGED_IN, payload: user };
 }
 
+//Action creator for removing the user from the store
 function loggedOut() {
   return { type: LOGGED_OUT};
 }
+
+
+/**
+ * Registers a user using backend 
+ * Accepts user data, receives a token, and dispatches the newly created and logged-in user to the store
+ * If unable to login, flashes a message to the UI
+ */
 
 function registerUser(data) {
 
@@ -62,8 +78,9 @@ function registerUser(data) {
     }
 }
 
-  function registeredUser(user) {
-    return { type: REGISTERED_USER, payload: user };
-  }
+//action creator for adding a newly created user to the store
+function registeredUser(user) {
+  return { type: REGISTERED_USER, payload: user };
+}
 
 export { login, loggedOut, registerUser }

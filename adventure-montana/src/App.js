@@ -1,3 +1,7 @@
+/**
+ * Contains the routes component along with an app-wide navigation bar and a component to display flashed messages
+ */
+
 import React from 'react';
 import './App.css';
 import NavBar from './NavBar';

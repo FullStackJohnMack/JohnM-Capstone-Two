@@ -1,3 +1,10 @@
+/**
+ * Contains helper functions used site-wide.
+ */
+
+/**
+ * Takes in an object and a condition to filter on and returns a filtered object.
+ */
 export function objFilter (obj, condition) {
     let temp = Object.keys(obj)
         .filter( key => condition(obj[key]))
@@ -5,6 +12,10 @@ export function objFilter (obj, condition) {
     return temp;
 }
 
+/**
+ * Accepts a category name as a string and returns a corresponding int.
+ * This is used translate category names into their numerical assignment.
+ */
 export function getCategoryId(category) {
     switch (category) {
         case "Hiking":

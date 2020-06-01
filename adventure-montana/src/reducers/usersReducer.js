@@ -1,11 +1,10 @@
 /**
- *   reducer is later combined with the  and  reducers
+ *  Users reducer
  */
 
 import { LOGGED_IN, LOGGED_OUT, REGISTERED_USER } from "../actions/actionTypes";
 
 const INITIAL_STATE = {};
-
 
 function users(state = INITIAL_STATE, action) {
   switch (action.type) {

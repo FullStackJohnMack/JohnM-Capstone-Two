@@ -1,3 +1,7 @@
+/**
+ * Component that contains a form to add a new adventure
+ */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -24,14 +28,17 @@ function AddAdventure () {
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [adventureId, setAdventureId] = useState(-1);
+
+    const [adventureId, setAdventureId] = useState(-1); //-1 indicates that the adventureId was never changed as all adventures are > 0
 
     const adventures = useSelector(store => store.adventures);
 
+    //if a valid adventure has loaded, redirect to adventures page with new adventure added
     if (adventures[adventureId]) {
         history.push('/adventures');
     }
 
+    //handles changes to controlled form
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({
@@ -40,6 +47,7 @@ function AddAdventure () {
         }))
     }
 
+    //if adding adventure is successful, change state which should trigger a re-direct
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await dispatch(addAdventure(formData));

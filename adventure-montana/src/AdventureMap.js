@@ -1,38 +1,49 @@
+/**
+ * Component that renders Google Map using Google Maps JavaScript API and react-google-maps-api npm package
+ */
+
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAdventuresFromAPI } from './actions/adventuresActions';
 import { Link } from 'react-router-dom';
 
-const BASE_URL = 'https://res.cloudinary.com/back-road-code/image/upload';
+const BASE_URL = 'https://res.cloudinary.com/back-road-code/image/upload'; //icon images stored here
 
 function AdventureMap () {
 
+    //style for Google Maps iframe
     const containerStyle = {
         width: 'auto',
         height: '100%'
       };
-      
-      const center = {
-        lat: 47.5081513,
-        lng: -111.3247377
-      };
+    
+    //center of map
+    const center = {
+      lat: 47.5081513,
+      lng: -111.3247377
+    };
 
     const dispatch = useDispatch();
 
+    //loads all adventures after initial render
     useEffect(() => {
         dispatch(getAllAdventuresFromAPI())
     }, [dispatch]);
 
     const adventuresObj = useSelector(store => (store.adventures));
+
+    //markers array which will populate with adventures and GPS coords
     const markers = [];
 
     const [ selected, setSelected ] = useState({});
   
+    //used when a marker is clicked on to specify where to draw the InfoWindow map item
     const onSelect = (item) => {
         setSelected(item);
     }
 
+    //user entered coords input as "47.497071, -111.284147" and returns {lat:47.497071,lng:-111.284147
     const convertCoords = (string) => {
         let coords = string.split(',');
         return {
@@ -44,7 +55,7 @@ function AdventureMap () {
     if (adventuresObj) {
         Object.values(adventuresObj).forEach(adv => {
 
-            let image;
+            let image; //used with switch statement below and matches a category to its associated icon for use in the map overlay
 
             switch (adv.category) {
                 case "Hiking":
@@ -86,8 +97,7 @@ function AdventureMap () {
                     cat={adv.category}
                     key={adv.adventure_id}
                     icon={image}
-                    onClick={() => onSelect(adv)}
-
+                    onClick={() => onSelect(adv)} //clicking on a marker loads an InfoWindow
                 />
             )
         })
@@ -110,8 +120,6 @@ function AdventureMap () {
                             onCloseClick={() => setSelected({})}
                         >
                             <div>
-                                {/* <p><a href={`/adventures/${selected.adventure_id}`}>{selected.name}</a></p> */}
-                                {/* <p>{selected.name}</p> */}
                                 <Link to={`adventures/${(selected.adventure_id)}`}><p>{selected.name}</p></Link>
                                 <p>{`Duration: ${selected.min_duration} minutes`}</p>
                                 <i>{selected.category}</i>

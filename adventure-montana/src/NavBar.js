@@ -1,3 +1,7 @@
+/**
+ * Component that renders a site-wide navbar with contextual changes
+ */
+
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,6 +12,7 @@ import { loggedOut } from './actions/usersActions';
 function NavBar () {
 
     const history = useHistory();
+
     const dispatch = useDispatch();
 
     const logout = () => {
@@ -16,7 +21,6 @@ function NavBar () {
     }
 
     const users = useSelector(store => store.users);
-
 
     return (
         <div className="shadow-lg bg-transparent">

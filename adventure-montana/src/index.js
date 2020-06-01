@@ -1,3 +1,7 @@
+/**
+ * This sets up our application and wraps our App with a Redux store and a PersistGate component which syncs the Redux store to localStorage
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,9 +10,6 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistedStore} from "./store";
-
-
-
 
 ReactDOM.render(
   <React.StrictMode>

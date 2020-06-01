@@ -1,3 +1,7 @@
+/**
+ * Component that contains a form to edit an existing adventure
+ */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -10,10 +14,13 @@ import { getCategoryId } from './helpers';
 function EditAdventure () {
 
     const history = useHistory();
+
     const dispatch = useDispatch();
+
     const { adventure_id } = useParams();
 
     const adventure = useSelector(store => store.adventures[adventure_id]);
+
     const token = useSelector(store => store.users.token);
 
     const INITIAL_STATE = {
@@ -28,6 +35,7 @@ function EditAdventure () {
 
     const [formData, setFormData] = useState(INITIAL_STATE);
 
+    //handles changes to controlled form
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({
@@ -36,6 +44,7 @@ function EditAdventure () {
         }))
     }
 
+    //on submit, redirect to this freshly edited adventure
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(editAdventure(adventure_id,formData));
