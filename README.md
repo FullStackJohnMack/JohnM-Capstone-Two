@@ -12,8 +12,8 @@ This website allows a visitor to explore outdoor activities around Central Monta
 The frontend is built using React and Redux and includes functionality to sync the Redux store to localStorage. A logged out user is free to explore the site while admin users can delete and edit adventures.
 
 Feel free to experiment with our test login:  
-Username:<code> testuser</code>  
-Password:<code> password</code>
+Username: <code>testuser</code>  
+Password: <code>password</code>
 
 ---
 ## <b>The tech stack used on this project includes:</b>
