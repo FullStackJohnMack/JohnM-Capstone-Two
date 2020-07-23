@@ -1,5 +1,4 @@
 # <b>Adventure Montana</b>  
----
 #### Built with React, Redux, Node.js, Express, PostgresQL
 ---
 ![Screenshot of app](homepage.png)   
@@ -9,11 +8,6 @@
 This website allows a visitor to explore outdoor activities around Central Montana. The focus of this application is both the clean (clear documentation and testing) backend which is a RESTful API built using Node.js and Express. Middleware is used extensively for authentication, error handling, and message flashing.
 
 The frontend is built using React and Redux and includes functionality to sync the Redux store to localStorage. A logged out user is free to explore the site while admin users can delete and edit adventures.
-
-Feel free to experiment with our test login:  
-Username: <code>testuser</code>  
-Password: <code>password</code>
-
 ---
 ## <b>The tech stack used on this project includes:</b>
 - HTML
