@@ -1,5 +1,4 @@
 # <b>Adventure Montana</b>  
-### <b>https://adventure-montana.netlify.app/ (live demo)</b>
 ---
 #### Built with React, Redux, Node.js, Express, PostgresQL
 ---
